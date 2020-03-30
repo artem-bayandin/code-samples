@@ -10,11 +10,6 @@ namespace Application.QueryModels
 
         public string Name { get; set; }
 
-        public ProductCategoryModel()
-        {
-
-        }
-
         //// for complex mappings
         //public void Mapping(Profile profile)
         //{

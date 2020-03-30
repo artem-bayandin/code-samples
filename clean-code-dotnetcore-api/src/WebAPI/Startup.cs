@@ -1,9 +1,7 @@
 using System.Reflection;
 using Application;
-using Application.Queries;
-using AutoMapper;
+using Domain;
 using Infrastructure.Data.Contexts;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +24,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             // add services
-            services.AddDbContext<ShopContext>(options => 
+            services.AddDbContext<ShopContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("EntitiesDatabase"),
                     // enable auto migrations
@@ -35,6 +33,7 @@ namespace WebAPI
             );
 
             services.AddApplicationModule();
+            services.AddDomainModule();
 
             //services.AddElmah<SqlErrorLog>(options =>
             //{
@@ -58,30 +57,23 @@ namespace WebAPI
 
             services.AddHttpContextAccessor();
 
-           // services.AddAuthorization(options =>
-           // {
-           //     options.AddPolicy(AuthorizationPoliciesConstants.AzureAuthorizationPoliciesName, policy =>
-           //         policy.Requirements.Add(new AzureRequirement()));
-           // });
+            // services.AddAuthorization(options =>
+            // {
+            //     options.AddPolicy(AuthorizationPoliciesConstants.AzureAuthorizationPoliciesName, policy =>
+            //         policy.Requirements.Add(new AzureRequirement()));
+            // });
 
-           // services.AddAuthentication(sharedOptions =>
-           // {
-           //     sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-           // })
-           //.AddAzureAdBearer(options => Configuration.Bind(AuthorizationPoliciesConstants.AzureAuthorizationOptionsName, options));
+            // services.AddAuthentication(sharedOptions =>
+            // {
+            //     sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            // })
+            //.AddAzureAdBearer(options => Configuration.Bind(AuthorizationPoliciesConstants.AzureAuthorizationOptionsName, options));
 
-           // // In production, the React files will be served from this directory
-           // services.AddSpaStaticFiles(configuration =>
-           // {
-           //     configuration.RootPath = "ClientApp/build";
-           // });
-
-            // Adding MediatR for Domain Events and Notifications
-            //services.AddMediatR(typeof(Startup));
-            services.AddMediatR(typeof(ProductCategoriesQuery).GetTypeInfo().Assembly);
-
-            // automapper
-            services.AddAutoMapper(typeof(ProductCategoriesQuery).GetTypeInfo().Assembly);
+            // // In production, the React files will be served from this directory
+            // services.AddSpaStaticFiles(configuration =>
+            // {
+            //     configuration.RootPath = "ClientApp/build";
+            // });
 
             // add cors for development
             //services.AddCors(options =>

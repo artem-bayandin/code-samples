@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
@@ -6,6 +8,10 @@ namespace Application
     {
         public static IServiceCollection AddApplicationModule(this IServiceCollection services)
         {
+            services.AddMediatR(typeof(ApplicationModule).Assembly);
+
+            services.AddAutoMapper(typeof(ApplicationModule).Assembly);
+
             return services;
         }
     }
