@@ -1,9 +1,6 @@
 ﻿using CrossCutting.Data.Extensions;
 using Domain.Entities;
-using Infrastructure.Data.Mappings;
-using Infrastructure.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Data.Contexts
 {
@@ -20,15 +17,7 @@ namespace Infrastructure.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // TODO: autoconfigure and autoadd
-            modelBuilder.ApplyConfiguration(new OrderMap());
-            modelBuilder.ApplyConfiguration(new ProductMap());
-            modelBuilder.ApplyConfiguration(new ProductMap());
-            modelBuilder.ApplyConfiguration(new ProductLineItemMap());
-
-            // seeds
-            // TODO: autoconfigure and autoadd
-            modelBuilder.ApplyConfiguration(new ProductCategorySeed());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShopContext).Assembly);
 
             modelBuilder.TypeDateTimeToDatetime2();
             modelBuilder.TypeStringToNvarchar255();
