@@ -1,4 +1,5 @@
 using System.Reflection;
+using Application;
 using Application.Queries;
 using AutoMapper;
 using Infrastructure.Data.Contexts;
@@ -32,6 +33,8 @@ namespace WebAPI
                     optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(ShopContext).GetTypeInfo().Assembly.GetName().Name)
                 )
             );
+
+            services.AddApplicationModule();
 
             //services.AddElmah<SqlErrorLog>(options =>
             //{

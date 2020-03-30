@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Application.Mappings
+namespace CrossCutting.Automapper
 {
     public interface IMapFrom<T>
     {

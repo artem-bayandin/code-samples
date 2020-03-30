@@ -3,14 +3,16 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Application.Mappings
+namespace CrossCutting.Automapper
 {
-    public class MappingProfile : Profile
+    public abstract class BaseMappingProfile : Profile
     {
-        public MappingProfile()
+        public BaseMappingProfile()
         {
-            ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+            ApplyMappingsFromAssembly(Assembly);
         }
+
+        public abstract Assembly Assembly { get; }
 
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {

@@ -1,4 +1,4 @@
-﻿using Application.Mappings;
+﻿using CrossCutting.Automapper;
 using Domain.Entities;
 using System;
 
@@ -9,8 +9,13 @@ namespace Application.QueryModels
         public Guid Id { get; set; }
 
         public string Name { get; set; }
-        
-        //// for difficult mappings
+
+        public ProductCategoryModel()
+        {
+
+        }
+
+        //// for complex mappings
         //public void Mapping(Profile profile)
         //{
         //    profile.CreateMap<ProductCategory, ProductCategoryModel>()
