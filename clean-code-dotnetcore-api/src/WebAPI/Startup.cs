@@ -1,5 +1,4 @@
 using Application;
-using CrossCutting.Automapper;
 using Domain;
 using Infrastructure.Data.Contexts;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +36,6 @@ namespace WebAPI
             // register 'modules' (contain internal registration for automapper and mediatr)
             services.AddApplicationModule();
             services.AddDomainModule();
-            services.AddCrossCuttingAutomapperModule();
 
             // TODO: what is it for?
             services.AddHttpContextAccessor();

@@ -21,9 +21,7 @@ namespace Application.QueryModels
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Order, OrderWithProductsModel>()
-                // TODO: fix
-                //.ForMember(dest => dest.Status, opt => opt.MapFrom<EnumValueResolver<OrderStatus>, OrderStatus>(src => src.OrderStatus))
-                .ForMember(dest => dest.Status, opt => opt.Ignore())
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(new EnumValueResolver<OrderStatus>(), src => src.OrderStatus))
                 .ForMember(dest => dest.Sum, opt => opt.MapFrom(src => src.ProductLineItems.Sum(pli => pli.Quantity * pli.Product.Price)))
                 .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.ProductLineItems))
                 ;
