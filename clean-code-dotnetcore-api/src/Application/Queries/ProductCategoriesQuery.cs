@@ -55,11 +55,13 @@ namespace Application.Queries
 
             public async Task<List<OrderModel>> Handle(OrdersQuery request, CancellationToken cancellationToken)
             {
-                return await _context
+                var data = await _context
                     .Orders
-                    .ProjectTo<OrderModel>(_mapper.ConfigurationProvider)
+                    .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
                     .OrderByDescending(t => t.DateCreated)
                     .ToListAsync(cancellationToken);
+
+                return _mapper.Map<List<OrderModel>>(data);
             }
         }
     }
@@ -86,7 +88,7 @@ namespace Application.Queries
                 var order = await _context
                     .Orders
                     .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
-                    .FirstOrDefaultAsync(x => x.Id == request.Id);
+                    .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
                 return _mapper.Map<OrderWithProductsModel>(order);
             }

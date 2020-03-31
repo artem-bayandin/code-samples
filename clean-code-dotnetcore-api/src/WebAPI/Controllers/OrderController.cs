@@ -6,6 +6,8 @@ using WebAPI.Controllers.Base;
 
 namespace WebAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class OrderController : BaseController
     {
         public OrderController(IMediator mediator) : base(mediator)
@@ -19,8 +21,8 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get([FromQuery] OrderWithProductsQuery query)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> Get([FromRoute] OrderWithProductsQuery query)
         {
             var result = await Mediator.Send(query ?? new OrderWithProductsQuery());
             return Ok(result);

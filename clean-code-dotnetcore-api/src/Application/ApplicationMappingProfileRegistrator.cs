@@ -1,4 +1,4 @@
-﻿using CrossCutting.Automapper;
+﻿using CrossCutting.Automapper.Base;
 using System.Reflection;
 
 namespace Application

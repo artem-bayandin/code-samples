@@ -7,16 +7,16 @@ using WebAPI.Infrastructure;
 
 namespace WebAPI.Controllers.Base
 {
-    public class BaseController : ControllerBase
+    public abstract class BaseController : ControllerBase
     {
         protected readonly IMediator Mediator;
 
-        public BaseController(IMediator mediator)
+        protected BaseController(IMediator mediator)
         {
             Mediator = mediator;
         }
 
-        public IActionResult Result(CommandResult command)
+        protected IActionResult Result(CommandResult command)
         {
             if (command.HasError)
             {
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers.Base
             return Ok();
         }
 
-        public IActionResult Result<T>(CommandResult<T> command) where T : class
+        protected IActionResult Result<T>(CommandResult<T> command) where T : class
         {
             if (command.HasError)
             {

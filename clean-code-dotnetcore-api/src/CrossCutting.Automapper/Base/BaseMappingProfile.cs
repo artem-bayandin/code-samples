@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace CrossCutting.Automapper
+namespace CrossCutting.Automapper.Base
 {
     public abstract class BaseMappingProfile : Profile
     {

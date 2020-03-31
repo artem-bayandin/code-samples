@@ -1,4 +1,4 @@
-﻿using CrossCutting.Automapper;
+﻿using CrossCutting.Automapper.Base;
 using Domain.Entities;
 using System;
 

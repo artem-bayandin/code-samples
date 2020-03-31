@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CrossCutting.Automapper;
+using CrossCutting.Automapper.Base;
 using CrossCutting.Automapper.MemberValueResolvers;
 using CrossCutting.Automapper.Models;
 using Domain.Entities;
@@ -19,7 +19,9 @@ namespace Application.QueryModels
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Order, OrderModel>()
-                .ForMember(dest => dest.Status, opt => opt.MapFrom<EnumValueResolver<OrderStatus>, OrderStatus>(src => src.OrderStatus))
+                // TODO: fix
+                //.ForMember(dest => dest.Status, opt => opt.MapFrom<EnumValueResolver<OrderStatus>, OrderStatus>(src => src.OrderStatus))
+                .ForMember(dest => dest.Status, opt => opt.Ignore())
                 .ForMember(dest => dest.Sum, opt => opt.MapFrom(src => src.ProductLineItems.Sum(pli => pli.Quantity * pli.Product.Price)))
                 ;
         }
