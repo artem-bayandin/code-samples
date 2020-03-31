@@ -1,4 +1,5 @@
 ﻿using Domain.CommandResults;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -8,6 +9,13 @@ namespace WebAPI.Controllers.Base
 {
     public class BaseController : ControllerBase
     {
+        protected readonly IMediator Mediator;
+
+        public BaseController(IMediator mediator)
+        {
+            Mediator = mediator;
+        }
+
         public IActionResult Result(CommandResult command)
         {
             if (command.HasError)

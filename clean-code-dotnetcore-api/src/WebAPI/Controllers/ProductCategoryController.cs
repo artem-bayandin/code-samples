@@ -10,17 +10,14 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ProductCategoryController : BaseController
     {
-        private readonly IMediator _mediator;
-
-        public ProductCategoryController(IMediator mediator)
+        public ProductCategoryController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _mediator.Send(new ProductCategoriesQuery());
+            var result = await Mediator.Send(new ProductCategoriesQuery());
             return Ok(result);
         }
     }
