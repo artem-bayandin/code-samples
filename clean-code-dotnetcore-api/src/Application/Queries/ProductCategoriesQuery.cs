@@ -1,6 +1,8 @@
 ﻿using Application.QueryModels;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using CrossCutting.FluentValidation;
+using FluentValidation;
 using Infrastructure.Data.Contexts;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -70,7 +72,27 @@ namespace Application.Queries
     {
         public Guid Id { get; set; }
 
-        // TODO: add validation
+        public class OrderWithProductsQueryValidator : AbstractValidator<OrderWithProductsQuery>
+        {
+            private readonly ShopContext _context;
+
+            public OrderWithProductsQueryValidator(ShopContext context)
+            {
+                _context = context;
+
+                // this does not work
+                //ValidatorOptions.PropertyNameResolver = CamelCasePropertyNameResolver.ResolvePropertyName;
+
+                RuleFor(x => x.Id)
+                    .MustAsync(OrderExists)
+                    .WithMessage("order should exist");
+            }
+
+            private async Task<bool> OrderExists(Guid orderId, CancellationToken cancellationToken)
+            {
+                return await _context.Orders.AnyAsync(x => x.Id == orderId, cancellationToken);
+            }
+        }
 
         public class OrderWithProductsQueryHandler : IRequestHandler<OrderWithProductsQuery, OrderWithProductsModel>
         {

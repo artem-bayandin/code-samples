@@ -1,5 +1,7 @@
 using Application;
+using CrossCutting.FluentValidation;
 using Domain;
+using FluentValidation.AspNetCore;
 using Infrastructure.Data.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace WebAPI
@@ -36,12 +39,18 @@ namespace WebAPI
             // register 'modules' (contain internal registration for automapper and mediatr)
             services.AddApplicationModule();
             services.AddDomainModule();
+            services.AddCrossCuttingFluentValidationModule();
 
             // TODO: what is it for?
             services.AddHttpContextAccessor();
 
             // TODO: what is it for?
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(options => {
+                    // TODO: why?
+                    options.RegisterValidatorsFromAssembly(typeof(ApplicationModule).Assembly);
+                    options.RegisterValidatorsFromAssembly(typeof(DomainModule).Assembly);
+                });
 
             // TODO: read docs
             services.AddSwaggerGen(options =>
@@ -60,7 +69,7 @@ namespace WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -88,6 +97,4 @@ namespace WebAPI
             });
         }
     }
-
-    
 }

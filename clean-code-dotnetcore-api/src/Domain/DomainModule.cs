@@ -8,9 +8,9 @@ namespace Domain
     {
         public static IServiceCollection AddDomainModule(this IServiceCollection services)
         {
-            services.AddMediatR(typeof(DomainModule).Assembly);
+            services.AddMediatR(typeof(DomainModule));
 
-            services.AddAutoMapper(typeof(DomainModule).Assembly);
+            services.AddAutoMapper(typeof(DomainModule));
 
             return services;
         }
