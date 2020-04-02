@@ -20,6 +20,7 @@ namespace Infrastructure.Data
                 )
             );
 
+            // register context
             services.AddScoped<IShopContext>(provider => provider.GetService<ShopContext>());
 
             return services;
