@@ -1,12 +1,10 @@
 using Application;
 using CrossCutting.FluentValidation;
 using Domain;
-using Domain.Interfaces;
 using FluentValidation.AspNetCore;
-using Infrastructure.Data.Contexts;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,32 +16,22 @@ namespace WebAPI
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // add database
-            services
-                .AddDbContext<ShopContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("EntitiesDatabase"),
-                    // enable auto migrations
-                    optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(ShopContext).Assembly.GetName().Name)
-                )
-            );
-
-            // TODO: remove
-            services.AddScoped<IShopContext>(provider => provider.GetService<ShopContext>());
-
             // register 'modules' (contain internal registration for automapper and mediatr)
             services.AddApplicationModule();
             services.AddDomainModule();
             services.AddCrossCuttingFluentValidationModule();
+            services.AddInfrastructureDataModule(Configuration);
 
             // TODO: what is it for?
             services.AddHttpContextAccessor();
@@ -66,6 +54,7 @@ namespace WebAPI
                         , Version = Configuration.GetValue<string>("Swagger:Version")
                     });
             });
+
             // System.Text.Json (STJ) vs Newtonsoft
             // Install-Package Swashbuckle.AspNetCore.Newtonsoft -Version 5.2.1
             // link: https://github.com/domaindrivendev/Swashbuckle.AspNetCore
