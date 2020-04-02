@@ -2,14 +2,13 @@
 using AutoMapper;
 using CrossCutting.FluentValidation;
 using FluentValidation;
-using Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
-using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Queries
 {
@@ -28,11 +27,11 @@ namespace Application.Queries
 
         public class OrderWithProductsQueryValidator : AbstractValidator<OrderWithProductsQuery>
         {
-            private readonly IRepository _repo;
+            private readonly IShopContext _context;
 
-            public OrderWithProductsQueryValidator(IRepository repo)
+            public OrderWithProductsQueryValidator(IShopContext context)
             {
-                _repo = repo;
+                _context = context;
 
                 // this does not work
                 //ValidatorOptions.PropertyNameResolver = CamelCasePropertyNameResolver.ResolvePropertyName;
@@ -46,25 +45,25 @@ namespace Application.Queries
 
             private async Task<bool> OrderExists(Guid orderId, CancellationToken cancellationToken)
             {
-                return await _repo.Set<Order>().AnyAsync(x => x.Id == orderId, cancellationToken);
+                return await _context.Orders.AnyAsync(x => x.Id == orderId, cancellationToken);
             }
         }
 
         public class OrderWithProductsQueryHandler : IRequestHandler<OrderWithProductsQuery, OrderWithProductsModel>
         {
-            private readonly IRepository _repo;
+            private readonly IShopContext _context;
             private readonly IMapper _mapper;
 
-            public OrderWithProductsQueryHandler(IRepository repo, IMapper mapper)
+            public OrderWithProductsQueryHandler(IShopContext context, IMapper mapper)
             {
-                _repo = repo;
+                _context = context;
                 _mapper = mapper;
             }
 
             public async Task<OrderWithProductsModel> Handle(OrderWithProductsQuery request, CancellationToken cancellationToken)
             {
-                var order = await _repo
-                    .Set<Order>()
+                var order = await _context
+                    .Orders
                     .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
                     .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 

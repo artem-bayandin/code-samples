@@ -2,7 +2,7 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Domain.Entities;
-using Domain.Repositories;
+using Domain.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -18,19 +18,19 @@ namespace Application.Queries
 
         public class ProductCategoriesQueryHandler : IRequestHandler<ProductCategoriesQuery, List<ProductCategoryModel>>
         {
-            private readonly IRepository _repo;
+            private readonly IShopContext _context;
             private readonly IMapper _mapper;
 
-            public ProductCategoriesQueryHandler(IRepository repo, IMapper mapper)
+            public ProductCategoriesQueryHandler(IShopContext context, IMapper mapper)
             {
-                _repo = repo;
+                _context = context;
                 _mapper = mapper;
             }
 
             public async Task<List<ProductCategoryModel>> Handle(ProductCategoriesQuery request, CancellationToken cancellationToken)
             {
-                return await _repo
-                    .Set<ProductCategory>()
+                return await _context
+                    .ProductCategories
                     .ProjectTo<ProductCategoryModel>(_mapper.ConfigurationProvider)
                     .OrderBy(t => t.Name)
                     .ToListAsync(cancellationToken);

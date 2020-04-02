@@ -1,7 +1,6 @@
 ﻿using Application.QueryModels;
 using AutoMapper;
-using Domain.Entities;
-using Domain.Repositories;
+using Domain.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -17,19 +16,19 @@ namespace Application.Queries
 
         public class OrdersQueryHandler : IRequestHandler<OrdersQuery, List<OrderModel>>
         {
-            private readonly IRepository _repo;
+            private readonly IShopContext _context;
             private readonly IMapper _mapper;
 
-            public OrdersQueryHandler(IRepository repo, IMapper mapper)
+            public OrdersQueryHandler(IShopContext context, IMapper mapper)
             {
-                _repo = repo;
+                _context = context;
                 _mapper = mapper;
             }
 
             public async Task<List<OrderModel>> Handle(OrdersQuery request, CancellationToken cancellationToken)
             {
-                var data = await _repo
-                    .Set<Order>()
+                var data = await _context
+                    .Orders
                     .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
                     .OrderByDescending(t => t.DateCreated)
                     .ToListAsync(cancellationToken);

@@ -1,9 +1,7 @@
 ﻿using System.Reflection;
 using Application;
 using Domain;
-using Domain.Repositories;
 using Infrastructure.Data.Contexts;
-using Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -91,9 +89,6 @@ namespace WebAPI
             //});
 
             services.AddControllers();
-
-            // TODO: remove
-            services.AddScoped<IRepository, Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

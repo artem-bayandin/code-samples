@@ -18,7 +18,7 @@ namespace Domain.Commands.Order
 
         public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
         {
-            // private readonly IRepository _repo;
+            // private readonly IShopContext _context;
 
             public CreateOrderCommandValidator(
                 //ShopContext context
@@ -34,7 +34,7 @@ namespace Domain.Commands.Order
 
         public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
         {
-            //private readonly IRepository _repo;
+            //private readonly IShopContext _context;
             //private readonly IMapper _mapper;
 
             public CreateOrderCommandHandler(

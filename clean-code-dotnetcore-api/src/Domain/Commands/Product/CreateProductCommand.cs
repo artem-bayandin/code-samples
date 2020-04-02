@@ -18,7 +18,7 @@ namespace Domain.Commands.Product
 
         public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
         {
-            // private readonly IRepository _repo;
+            // private readonly IShopContext _context;
 
             public CreateProductCommandValidator(
                 //ShopContext context
@@ -34,7 +34,7 @@ namespace Domain.Commands.Product
 
         public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
         {
-            //private readonly IRepository _repo;
+            //private readonly IShopContext _context;
             //private readonly IMapper _mapper;
 
             public CreateProductCommandHandler(

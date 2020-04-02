@@ -1,6 +1,7 @@
 using Application;
 using CrossCutting.FluentValidation;
 using Domain;
+using Domain.Interfaces;
 using FluentValidation.AspNetCore;
 using Infrastructure.Data.Contexts;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,9 @@ namespace WebAPI
                     optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(ShopContext).Assembly.GetName().Name)
                 )
             );
+
+            // TODO: remove
+            services.AddScoped<IShopContext>(provider => provider.GetService<ShopContext>());
 
             // register 'modules' (contain internal registration for automapper and mediatr)
             services.AddApplicationModule();

@@ -1,10 +1,11 @@
 ﻿using CrossCutting.Data.Extensions;
 using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.Contexts
 {
-    public class ShopContext : DbContext
+    public class ShopContext : DbContext, IShopContext
     {
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
