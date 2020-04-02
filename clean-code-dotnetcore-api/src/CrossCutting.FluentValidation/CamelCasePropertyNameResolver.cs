@@ -6,10 +6,9 @@ using System.Reflection;
 
 namespace CrossCutting.FluentValidation
 {
-    // TODO: is it needed?
+    // TODO: is it needed? refactor or remove
     public class CamelCasePropertyNameResolver
     {
-
         public static string ResolvePropertyName(Type type, MemberInfo memberInfo, LambdaExpression expression)
         {
             return ToCamelCase(DefaultPropertyNameResolver(type, memberInfo, expression));
