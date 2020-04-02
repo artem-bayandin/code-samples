@@ -24,17 +24,20 @@ namespace CrossCutting.FluentValidation
             return rule.WithMessage(FormatMessage(formatter, args));
         }
 
-        private static string FormatMessage(string formatter, object[] args) => String.Format(formatter, args);
+        public static string FormatMessage(Enum value, params object[] args) => FormatMessage(value.GetDescription(), args);
 
-        public static string FormatMessage<T, TProperty, TError>(T query, TProperty prop, TError errorMessage) where TError : struct
-        {
-            throw new NotImplementedException();
-        }
+        private static string FormatMessage(string formatter, params object[] args) => String.Format(formatter, args);
     }
 
     // TODO: refactor, as it is a copy of EnumExtensions from CrossCutting.Automapper
     public static class EnumExtensions
     {
+        public static string GetDescription(this Enum value)
+        {
+            var (_, _, descr) = value.ConvertToEnumModel();
+            return descr;
+        }
+
         public static (int, string, string) ConvertToEnumModel<T>(this T value) where T : struct
         {
             if (!typeof(T).IsEnum)

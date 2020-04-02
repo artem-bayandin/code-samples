@@ -7,12 +7,12 @@ namespace CrossCutting.Automapper.Base
 {
     public abstract class BaseMappingProfile : Profile
     {
+        public abstract Assembly Assembly { get; }
+
         public BaseMappingProfile()
         {
             ApplyMappingsFromAssembly(Assembly);
         }
-
-        public abstract Assembly Assembly { get; }
 
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {

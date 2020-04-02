@@ -18,6 +18,9 @@ namespace Application.Queries
 
         public enum OrderWithProductsQueryErrors
         {
+            [Description("Id should not be empty")]
+            EmptyOrderId,
+
             [Description("Order with id '{0}' does not exist")]
             OrderDoesNotExist
         }
@@ -34,9 +37,10 @@ namespace Application.Queries
                 //ValidatorOptions.PropertyNameResolver = CamelCasePropertyNameResolver.ResolvePropertyName;
 
                 RuleFor(x => x.Id)
+                    .NotEmpty()
+                    .WithMessage(OrderWithProductsQueryErrors.EmptyOrderId)
                     .MustAsync(OrderExists)
-                    .WithMessage((query, id) => ValidatorMessageExtensions.FormatMessage(query, id, OrderWithProductsQueryErrors.OrderDoesNotExist));
-                    //.WithMessage(OrderWithProductsQueryErrors.OrderDoesNotExist);
+                    .WithMessage((query, id) => ValidatorMessageExtensions.FormatMessage(OrderWithProductsQueryErrors.OrderDoesNotExist, id));
             }
 
             private async Task<bool> OrderExists(Guid orderId, CancellationToken cancellationToken)
