@@ -16,7 +16,6 @@
     <ProjectReference Include="..\CrossCutting.Automapper\CrossCutting.Automapper.csproj" />
     <ProjectReference Include="..\CrossCutting.FluentValidation\CrossCutting.FluentValidation.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>
