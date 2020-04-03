@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Domain.CommandResults
+namespace Domain.Commands
 {
     public enum CommandResultErrors
     {

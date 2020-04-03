@@ -1,4 +1,5 @@
-﻿using Application.Queries;
+﻿using Application.Queries.Orders;
+using Application.Queries.OrderWithProducts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

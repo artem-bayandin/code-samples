@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.Automapper", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.FluentValidation", "src\CrossCutting.FluentValidation\CrossCutting.FluentValidation.csproj", "{7F893CB7-E54A-4869-96CD-EE60A169F8EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.EnumExtensions", "src\CrossCutting.EnumExtensions\CrossCutting.EnumExtensions.csproj", "{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,18 @@ Global
 		{7F893CB7-E54A-4869-96CD-EE60A169F8EA}.Release|x64.Build.0 = Release|Any CPU
 		{7F893CB7-E54A-4869-96CD-EE60A169F8EA}.Release|x86.ActiveCfg = Release|Any CPU
 		{7F893CB7-E54A-4869-96CD-EE60A169F8EA}.Release|x86.Build.0 = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|x64.Build.0 = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|x64.ActiveCfg = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|x64.Build.0 = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +139,7 @@ Global
 		{2ED87DB1-7C68-48BA-B4A5-EB73AF98CD68} = {219E4D49-956D-4912-ADC0-6F6A151DEA38}
 		{3BF02021-9580-4901-AF0C-25C2ACE98722} = {219E4D49-956D-4912-ADC0-6F6A151DEA38}
 		{7F893CB7-E54A-4869-96CD-EE60A169F8EA} = {219E4D49-956D-4912-ADC0-6F6A151DEA38}
+		{72224FBE-9AB6-4CDC-BA58-CC8099A5C0F5} = {219E4D49-956D-4912-ADC0-6F6A151DEA38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5808A38E-13F0-4AC9-9123-D79E913C6531}

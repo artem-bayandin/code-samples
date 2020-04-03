@@ -1,4 +1,4 @@
-﻿using Application.Queries;
+﻿using Application.Queries.ProductCategories;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

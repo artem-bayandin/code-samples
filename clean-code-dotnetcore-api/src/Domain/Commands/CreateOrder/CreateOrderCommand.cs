@@ -4,23 +4,23 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Domain.Commands.Product
+namespace Domain.Commands.CreateOrder
 {
-    public class CreateProductCommand : IRequest<Guid>
+    public class CreateOrderCommand : IRequest<Guid>
     {
         // some fields
 
-        public enum CreateProductCommandErrors
+        public enum CreateOrderCommandErrors
         {
             //[Description("Id should not be empty")]
             //EmptyOrderId
         }
 
-        public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+        public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
         {
             // private readonly IShopContext _context;
 
-            public CreateProductCommandValidator(
+            public CreateOrderCommandValidator(
                 //ShopContext context
                 )
             {
@@ -32,18 +32,18 @@ namespace Domain.Commands.Product
             }
         }
 
-        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
+        public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
         {
             //private readonly IShopContext _context;
             //private readonly IMapper _mapper;
 
-            public CreateProductCommandHandler(
+            public CreateOrderCommandHandler(
                 //ShopContext context
                 )
             {
             }
 
-            public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+            public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
             {
                 return await Task.FromResult(Guid.NewGuid());
             }

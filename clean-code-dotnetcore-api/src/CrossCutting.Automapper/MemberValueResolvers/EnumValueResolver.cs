@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using CrossCutting.Automapper.Extensions;
-using CrossCutting.Automapper.Models;
+using CrossCutting.EnumExtensions;
 using System;
 
 namespace CrossCutting.Automapper.MemberValueResolvers

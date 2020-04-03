@@ -1,4 +1,4 @@
-﻿namespace CrossCutting.Automapper.Models
+﻿namespace CrossCutting.EnumExtensions
 {
     public class EnumModel
     {

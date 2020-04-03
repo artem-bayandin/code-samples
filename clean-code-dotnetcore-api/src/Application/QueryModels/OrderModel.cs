@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CrossCutting.Automapper.Base;
 using CrossCutting.Automapper.MemberValueResolvers;
-using CrossCutting.Automapper.Models;
+using CrossCutting.EnumExtensions;
 using Domain.Entities;
 using Domain.Enums;
 using System;
