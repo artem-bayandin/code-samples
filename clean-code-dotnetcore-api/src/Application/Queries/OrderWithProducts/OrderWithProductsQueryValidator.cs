@@ -5,6 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain.Interfaces;
+using Domain.Commands;
 
 namespace Application.Queries.OrderWithProducts
 {
@@ -18,7 +19,7 @@ namespace Application.Queries.OrderWithProducts
 
             RuleFor(x => x.Id)
                 .NotEmpty()
-                .WithMessage(OrderWithProductsQueryErrors.EmptyOrderId)
+                .WithMessage(CommonErrors.ShouldNotBeEmpty)
                 .MustAsync(OrderExists)
                 .WithMessage((query, id) => ValidatorMessageExtensions.FormatMessage(OrderWithProductsQueryErrors.OrderDoesNotExist, id));
         }

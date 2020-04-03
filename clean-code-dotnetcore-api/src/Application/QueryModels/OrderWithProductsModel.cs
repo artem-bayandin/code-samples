@@ -3,7 +3,7 @@ using CrossCutting.Automapper.Base;
 using CrossCutting.Automapper.MemberValueResolvers;
 using CrossCutting.EnumExtensions;
 using Domain.Entities;
-using Domain.Enums;
+using Domain.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,52 +1,13 @@
-﻿using FluentValidation;
-using MediatR;
+﻿using MediatR;
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Domain.Commands.CreateProduct
 {
-    public class CreateProductCommand : IRequest<Guid>
+    public class CreateProductCommand : IRequest<CommandResult<CreateCommandResult<Guid>>>
     {
-        // some fields
-
-        public enum CreateProductCommandErrors
-        {
-            //[Description("Id should not be empty")]
-            //EmptyOrderId
-        }
-
-        public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
-        {
-            // private readonly IShopContext _context;
-
-            public CreateProductCommandValidator(
-                //ShopContext context
-                )
-            {
-                //RuleFor(x => x.Id)
-                //    .NotEmpty()
-                //    .WithMessage(OrderWithProductsQueryErrors.EmptyOrderId)
-                //    .MustAsync(OrderExists)
-                //    .WithMessage((query, id) => ValidatorMessageExtensions.FormatMessage(OrderWithProductsQueryErrors.OrderDoesNotExist, id));
-            }
-        }
-
-        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
-        {
-            //private readonly IShopContext _context;
-            //private readonly IMapper _mapper;
-
-            public CreateProductCommandHandler(
-                //ShopContext context
-                )
-            {
-            }
-
-            public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-            {
-                return await Task.FromResult(Guid.NewGuid());
-            }
-        }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public Guid ProductCategoryId { get; set; }
     }
 }

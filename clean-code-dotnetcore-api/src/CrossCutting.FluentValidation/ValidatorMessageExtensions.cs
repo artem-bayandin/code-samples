@@ -11,6 +11,15 @@ namespace CrossCutting.FluentValidation
             , params object[] args
             ) where TError : struct
         {
+            var (_, _, descr) = errorMessage.ConvertToEnumTuple();
+            return rule.WithMessage(descr);
+        }
+
+        public static IRuleBuilderOptions<T, TProperty> WithFormattedMessage<T, TProperty, TError>(this IRuleBuilderOptions<T, TProperty> rule
+            , TError errorMessage
+            , params object[] args
+            ) where TError : struct
+        {
             var (id, name, descr) = errorMessage.ConvertToEnumTuple();
 
             // choose what to send back here

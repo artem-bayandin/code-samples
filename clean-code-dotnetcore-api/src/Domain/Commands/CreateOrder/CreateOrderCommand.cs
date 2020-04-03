@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Commands.CreateOrder
 {
-    public class CreateOrderCommand : IRequest<Guid>
+    public class CreateOrderCommand : IRequest<CommandResult<Guid>>
     {
         // some fields
 
@@ -32,7 +32,7 @@ namespace Domain.Commands.CreateOrder
             }
         }
 
-        public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
+        public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
         {
             //private readonly IShopContext _context;
             //private readonly IMapper _mapper;
@@ -43,9 +43,9 @@ namespace Domain.Commands.CreateOrder
             {
             }
 
-            public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+            public async Task<CommandResult<Guid>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
             {
-                return await Task.FromResult(Guid.NewGuid());
+                return await Task.FromResult(CommandResult<Guid>.Ok(Guid.NewGuid()));
             }
         }
     }

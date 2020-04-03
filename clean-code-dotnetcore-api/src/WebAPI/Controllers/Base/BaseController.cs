@@ -25,7 +25,7 @@ namespace WebAPI.Controllers.Base
             return Ok();
         }
 
-        protected IActionResult Result<T>(CommandResult<T> command) where T : class
+        protected IActionResult Result<T>(CommandResult<T> command) // where T : class
         {
             if (command.HasError)
             {

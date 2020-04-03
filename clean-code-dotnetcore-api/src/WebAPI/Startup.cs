@@ -1,8 +1,7 @@
 using Application;
-using CrossCutting.FluentValidation;
 using Domain;
 using FluentValidation.AspNetCore;
-using Infrastructure.Data;
+using Infrastructure.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,11 +26,8 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // register 'modules' (contain internal registration for automapper and mediatr)
-            services.AddApplicationModule();
-            services.AddDomainModule();
-            services.AddCrossCuttingFluentValidationModule();
-            services.AddInfrastructureDataModule(Configuration);
+            // custom IoC
+            services.RegisterDependencies(Configuration);
 
             // TODO: what is it for?
             services.AddHttpContextAccessor();

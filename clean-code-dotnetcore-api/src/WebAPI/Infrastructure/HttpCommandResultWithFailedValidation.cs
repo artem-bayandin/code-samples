@@ -33,10 +33,10 @@ namespace WebAPI.Infrastructure
         {
             switch (_commandStatusCode)
             {
-                case (int)CommandResultErrors.BadRequest:
+                case (int)CommandResultStatuses.BadRequest:
                     return (int)HttpStatusCode.BadRequest;
 
-                case (int)CommandResultErrors.ServerError:
+                case (int)CommandResultStatuses.ServerError:
                     return (int)HttpStatusCode.InternalServerError;
 
                 default:

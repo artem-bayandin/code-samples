@@ -16,12 +16,12 @@ namespace CrossCutting.Automapper.Base
 
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {
-            var types = assembly
+            var mapFrom = assembly
                 .GetExportedTypes()
                 .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
                 .ToList();
 
-            foreach (var type in types)
+            foreach (var type in mapFrom)
             {
                 var instance = Activator.CreateInstance(type);
 

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Domain.Commands
 {
-    public enum CommandResultErrors
+    public enum CommandResultStatuses
     {
         Success,
         BadRequest,
@@ -30,7 +30,7 @@ namespace Domain.Commands
         {
             var result = new CommandResult
             {
-                StatusCode = (int)CommandResultErrors.Success
+                StatusCode = (int)CommandResultStatuses.Success
             };
             return result;
         }
@@ -39,7 +39,7 @@ namespace Domain.Commands
         {
             var result = new CommandResult
             {
-                StatusCode = (int)CommandResultErrors.BadRequest,
+                StatusCode = (int)CommandResultStatuses.BadRequest,
                 _hasError = true,
                 Validation = new ValidationResult()
             };
@@ -52,7 +52,7 @@ namespace Domain.Commands
     }
 
     public class CommandResult<TResult> : CommandResult
-        where TResult : class
+        //where TResult : class
     {
         public readonly TResult Result;
 
@@ -70,15 +70,15 @@ namespace Domain.Commands
         {
             return new CommandResult<TResult>(result)
             {
-                StatusCode = (int)CommandResultErrors.Success
+                StatusCode = (int)CommandResultStatuses.Success
             };
         }
 
         public new static CommandResult<TResult> FailedValidation(IList<ValidationFailure> errors)
         {
-            var result = new CommandResult<TResult>(null)
+            var result = new CommandResult<TResult>(default)
             {
-                StatusCode = (int)CommandResultErrors.BadRequest,
+                StatusCode = (int)CommandResultStatuses.BadRequest,
                 _hasError = true,
                 Validation = new ValidationResult()
             };
