@@ -24,11 +24,12 @@ namespace Application.Queries.ProductCategories
 
         public async Task<List<ProductCategoryModel>> Handle(ProductCategoriesQuery request, CancellationToken cancellationToken)
         {
-            return await _context
+            var data = await _context
                 .ProductCategories
-                .ProjectTo<ProductCategoryModel>(_mapper.ConfigurationProvider)
-                .OrderBy(t => t.Name)
+                .OrderBy(x => x.Name)
                 .ToListAsync(cancellationToken);
+
+            return _mapper.Map<List<ProductCategoryModel>>(data);
         }
     }
 }

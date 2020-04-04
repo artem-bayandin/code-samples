@@ -25,8 +25,8 @@ namespace Application.Queries.Orders
         {
             var data = await _context
                 .Orders
-                .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
-                .OrderByDescending(t => t.DateCreated)
+                .Include(x => x.ProductLineItems).ThenInclude(x => x.Product)
+                .OrderByDescending(x => x.DateCreated)
                 .ToListAsync(cancellationToken);
 
             return _mapper.Map<List<OrderModel>>(data);

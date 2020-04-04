@@ -6,5 +6,6 @@ namespace Application.Queries.Products
 {
     public class ProductsQuery : IRequest<List<ProductModel>>
     {
+        // empty query
     }
 }

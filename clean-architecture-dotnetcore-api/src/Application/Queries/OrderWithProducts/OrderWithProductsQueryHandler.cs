@@ -21,12 +21,12 @@ namespace Application.Queries.OrderWithProducts
 
         public async Task<OrderWithProductsModel> Handle(OrderWithProductsQuery request, CancellationToken cancellationToken)
         {
-            var order = await _context
+            var data = await _context
                 .Orders
-                .Include(x => x.ProductLineItems).ThenInclude(pli => pli.Product)
+                .Include(x => x.ProductLineItems).ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
-            return _mapper.Map<OrderWithProductsModel>(order);
+            return _mapper.Map<OrderWithProductsModel>(data);
         }
     }
 }
