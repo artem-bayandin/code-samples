@@ -6,6 +6,7 @@ using CrossCutting.FluentValidation;
 using Domain.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Domain.Common.Errors;
 
 namespace Domain.Commands.CreateProduct
 {

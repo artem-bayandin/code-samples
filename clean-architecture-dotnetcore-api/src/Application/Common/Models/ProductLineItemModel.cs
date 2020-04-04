@@ -3,7 +3,7 @@ using CrossCutting.Automapper.Base;
 using Domain.Entities;
 using System;
 
-namespace Application.QueryModels
+namespace Application.Common.Models
 {
     public class ProductLineItemModel : IMapFrom<ProductLineItem>
     {

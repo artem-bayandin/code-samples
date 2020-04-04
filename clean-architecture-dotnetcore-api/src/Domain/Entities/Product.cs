@@ -5,20 +5,28 @@ namespace Domain.Entities
 {
     public class Product
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
 
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public double Price { get; set; }
+        public string Name { get; protected set; }
+        public string Description { get; protected set; }
+        public double Price { get; protected set; }
 
-        public Guid ProductCategoryId { get; set; }
+        public Guid ProductCategoryId { get; protected set; }
 
-        public virtual ProductCategory ProductCategory { get; set; }
-        public virtual List<ProductLineItem> ProductLineItems { get; set; }
+        public virtual ProductCategory ProductCategory { get; protected set; }
+        public virtual List<ProductLineItem> ProductLineItems { get; protected set; }
 
-        public Product()
+        protected Product()
         {
             ProductLineItems = new List<ProductLineItem>();
+        }
+
+        public static Product Create()
+        {
+            return new Product
+            {
+                Id = Guid.NewGuid()
+            };
         }
     }
 }

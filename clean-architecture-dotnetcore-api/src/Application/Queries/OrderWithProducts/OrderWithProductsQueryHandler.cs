@@ -1,10 +1,10 @@
-﻿using Application.QueryModels;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain.Interfaces;
+using Application.Common.Models;
 
 namespace Application.Queries.OrderWithProducts
 {

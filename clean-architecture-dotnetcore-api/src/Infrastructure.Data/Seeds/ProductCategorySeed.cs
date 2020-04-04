@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace Infrastructure.Data.Seeds
 {
@@ -11,21 +10,9 @@ namespace Infrastructure.Data.Seeds
         {
             builder
                 .HasData(
-                    new ProductCategory
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Notebook"
-                    },
-                    new ProductCategory
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "PC"
-                    },
-                    new ProductCategory
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Input device"
-                    }
+                    ProductCategory.Create("Notebook"),
+                    ProductCategory.Create("PC"),
+                    ProductCategory.Create("Input device")
                 );
         }
     }

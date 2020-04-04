@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain.Interfaces;
-using Domain.Commands;
+using Domain.Common.Errors;
 
 namespace Application.Queries.OrderWithProducts
 {

@@ -21,7 +21,7 @@ namespace Domain.Commands.CreateProduct
 
         public async Task<CommandResult<CreateCommandResult<Guid>>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = _mapper.Map<Product>(request);
+            var product = _mapper.Map<CreateProductCommand, Product>(request, Product.Create());
             var saved = await _context.Products.AddAsync(product, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
             return CommandResult<CreateCommandResult<Guid>>.Ok(new CreateCommandResult<Guid>(saved.Entity.Id));

@@ -2,7 +2,7 @@
 {
     public class CreateCommandResult<T>
     {
-        T Id { get; }
+        public T Id { get; }
 
         public CreateCommandResult(T id)
         {

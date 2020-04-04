@@ -1,5 +1,6 @@
 ﻿using Application.Queries.Orders;
 using Application.Queries.OrderWithProducts;
+using Domain.Commands.CreateOrder;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -27,6 +28,13 @@ namespace WebAPI.Controllers
         {
             var result = await Mediator.Send(query ?? new OrderWithProductsQuery());
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateOrderCommand request)
+        {
+            var data = await Mediator.Send(request);
+            return Result(data);
         }
     }
 }

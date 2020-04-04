@@ -2,7 +2,7 @@
 using Domain.Entities;
 using System;
 
-namespace Application.QueryModels
+namespace Application.Common.Models
 {
     public class ProductModel : IMapFrom<Product>
     {

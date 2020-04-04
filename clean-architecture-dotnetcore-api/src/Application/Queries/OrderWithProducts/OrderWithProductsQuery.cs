@@ -1,4 +1,4 @@
-﻿using Application.QueryModels;
+﻿using Application.Common.Models;
 using MediatR;
 using System;
 

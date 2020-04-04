@@ -1,4 +1,4 @@
-﻿using Application.QueryModels;
+﻿using Application.Common.Models;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Domain.Interfaces;

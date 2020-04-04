@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Domain.Commands
+namespace Domain.Common.Errors
 {
     public enum CommonErrors
     {
@@ -12,11 +12,5 @@ namespace Domain.Commands
 
         [Description("{PropertyName} should be greater than 0")]
         ShouldBeGreaterThan0,
-    }
-
-    public enum CommonCustomFormatterErrors
-    {
-        [Description("{0} should exist")]
-        EntityShouldExist
     }
 }
