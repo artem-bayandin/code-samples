@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Data", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.Data", "src\CrossCutting.Data\CrossCutting.Data.csproj", "{2ED87DB1-7C68-48BA-B4A5-EB73AF98CD68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.Automapper", "src\crosscutting.automapper\CrossCutting.Automapper.csproj", "{3BF02021-9580-4901-AF0C-25C2ACE98722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.Automapper", "src\CrossCutting.Automapper\CrossCutting.Automapper.csproj", "{3BF02021-9580-4901-AF0C-25C2ACE98722}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.FluentValidation", "src\CrossCutting.FluentValidation\CrossCutting.FluentValidation.csproj", "{7F893CB7-E54A-4869-96CD-EE60A169F8EA}"
 EndProject
