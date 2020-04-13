@@ -39,7 +39,7 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
-    workingDirectory: 'src'
+    # workingDirectory: 'src'
 
 - task: DotNetCoreCLI@2
   displayName: 'test projects'
