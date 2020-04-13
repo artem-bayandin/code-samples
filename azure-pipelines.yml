@@ -39,7 +39,6 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
-    # workingDirectory: 'src'
 
 - task: DotNetCoreCLI@2
   displayName: 'test projects'
@@ -47,7 +46,6 @@ steps:
     command: 'test'
     projects: '**/*[Tt]ests/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
-    workingDirectory: 'tests'
 
 - task: DotNetCoreCLI@2
   displayName: 'publish'
