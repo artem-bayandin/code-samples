@@ -17,22 +17,24 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '3.x'
+# - task: UseDotNet@2
+#   inputs:
+#     packageType: 'sdk'
+#     version: '3.x'
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'restore projects'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
     feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
+  displayName: 'build projects'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
@@ -40,6 +42,7 @@ steps:
     workingDirectory: 'src'
 
 - task: DotNetCoreCLI@2
+  displayName: 'test projects'
   inputs:
     command: 'test'
     projects: '**/*[Tt]ests/*.csproj'
@@ -47,12 +50,14 @@ steps:
     workingDirectory: 'tests'
 
 - task: DotNetCoreCLI@2
+  displayName: 'publish'
   inputs:
     command: 'publish'
     publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(build.artefactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'drop'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
