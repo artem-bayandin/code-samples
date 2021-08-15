@@ -1,6 +1,7 @@
 Here I will collect samples of architectures I used to, to use it within my future projects.
 
-# clean-architecture-dotnetcore-api
+# 2020-03-clean-architecture-dotnetcore-api
+## state: started on March, 2020, currently ON_HOLD
 Web API project built using .Net Core 3.1, EF 3.1. Design - Clean Architecture. Technologies used:
 - .net core 3.1
 - ef 3.1
@@ -8,6 +9,7 @@ Web API project built using .Net Core 3.1, EF 3.1. Design - Clean Architecture. 
 - fluent validation
 - automapper
 - swagger
+- azure build pipelines added
 
 Further improvements (TODOs):
 - samples of more complex queries and commands, some di and so on
@@ -31,3 +33,7 @@ Further improvements (TODOs):
 - error logging (nlog), error handling (elmah)
 - nswag, openapi
 - tests
+
+# 2021-08-WIP-nodejs-nest-hexagonal
+## state: started in August'2021 as a template for future full version
+Web API project built using Node.js and Nest.js. Design - DDD, Hexagonal (ports and adapters).
