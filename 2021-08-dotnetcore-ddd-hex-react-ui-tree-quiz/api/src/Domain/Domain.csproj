@@ -5,4 +5,20 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="CQRS\**" />
+    <Compile Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="CQRS\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <None Remove="CQRS\**" />
+    <None Remove="NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+
 </Project>
