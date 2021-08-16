@@ -1,6 +1,14 @@
 ﻿namespace Domain.Ports.In.Result
 {
-    public class DomainRequestResult
+    public interface IDomainRequestResult
+    {
+        DomainRequestResultStatuses Status { get; }
+        List<DomainRequestResultError> Errors { get; }
+        void SetStatus(DomainRequestResultStatuses status);
+        void SetErrors(List<DomainRequestResultError> errors);
+    }
+
+    public class DomainRequestResult : IDomainRequestResult
     {
         public DomainRequestResultStatuses Status { get; private set; }
         public List<DomainRequestResultError> Errors { get; private set; }
@@ -30,6 +38,10 @@
     public class DomainRequestResult<TResult> : DomainRequestResult
     {
         public readonly TResult Data;
+
+        public DomainRequestResult() : base()
+        {
+        }
 
         public DomainRequestResult(TResult data)
         {

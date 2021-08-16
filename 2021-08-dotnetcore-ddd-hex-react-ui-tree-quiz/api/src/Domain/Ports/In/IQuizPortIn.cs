@@ -7,7 +7,7 @@ namespace Domain.Ports.In
     {
         Task<DomainRequestResult<IEnumerable<QuizNameRecord>>> GetQuizzesNames();
         Task<DomainRequestResult<QuizRecord>> GetQuizById(int quizId);
-        Task<DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>> GetUserAnswersForQuiz(Guid userId, int quizId);
-        Task<DomainRequestResult> SaveUserAnswersForQuiz(Guid userId, int quizId, IEnumerable<int> selectedNodes);
+        Task<DomainRequestResult<UserAnswersForQuizRecord>> GetUserAnswersForQuiz(Guid userId, int quizId);
+        Task<DomainRequestResult> SaveUserAnswersForQuiz(Guid userId, int quizId, List<int> selectedNodes);
     }
 }

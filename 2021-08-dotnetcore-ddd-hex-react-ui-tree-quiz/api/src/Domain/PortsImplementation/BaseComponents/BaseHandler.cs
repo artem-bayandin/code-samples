@@ -6,7 +6,7 @@ namespace Domain.PortsImplementation.BaseComponents
 {
     public abstract class BaseHandler<TRequest, TResult> : IRequestHandler<TRequest, TResult>
         where TRequest : IRequest<TResult>
-        where TResult : DomainRequestResult
+        where TResult : class, IDomainRequestResult, new()
     {
         public virtual async Task<TResult> Handle(TRequest request, CancellationToken cancellationToken)
         {
@@ -18,7 +18,7 @@ namespace Domain.PortsImplementation.BaseComponents
 
     public abstract class BaseHandlerWithValidation<TRequest, TResult> : BaseHandler<TRequest, TResult>
         where TRequest : IRequest<TResult>
-        where TResult : DomainRequestResult
+        where TResult : class, IDomainRequestResult, new()
     {
         private readonly IValidator<TRequest> _validator;
 
@@ -36,10 +36,10 @@ namespace Domain.PortsImplementation.BaseComponents
                     .Errors
                     .Select(x => new DomainRequestResultError(x.PropertyName, x.ErrorCode, x.ErrorMessage))
                     .ToList();
-                var result = new DomainRequestResult();
+                var result = new TResult();
                 result.SetErrors(errors);
                 result.SetStatus(DomainRequestResultStatuses.ValidationFailed);
-                return result as TResult;
+                return result;
             }
 
             return await base.Handle(request, cancellationToken);

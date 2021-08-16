@@ -26,6 +26,8 @@ namespace Infrastructure.Persistence
 
             // register context
             services.AddScoped<IQuizContext>(provider => provider.GetService<QuizContext>());
+            // register UoF
+            services.AddScoped<IUnitOfWork>(provider => provider.GetService<QuizContext>());
 
             return services;
         }

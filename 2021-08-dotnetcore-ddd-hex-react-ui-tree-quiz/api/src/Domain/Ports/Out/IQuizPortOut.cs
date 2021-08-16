@@ -7,7 +7,7 @@ namespace Domain.Ports.Out
         Task<bool> QuizExist(int quizId);
         Task<IEnumerable<QuizNameRecord>> GetQuizNames();
         Task<QuizRecord> GetQuizById(int quizId);
-        Task<IEnumerable<UserAnswersForQuizRecord>> GetUserAnswersForQuiz(Guid userId, int quizId);
-        Task SaveUserAnswersForQuiz(Guid userId, int quizId, IEnumerable<int> selectedNodes);
+        Task<UserAnswersForQuizRecord> GetUserAnswersForQuiz(Guid userId, int quizId);
+        Task SaveUserAnswersForQuiz(Guid userId, int quizId, List<int> selectedNodes);
     }
 }

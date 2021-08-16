@@ -4,5 +4,5 @@ using MediatR;
 
 namespace Domain.PortsImplementation.Quiz.GetQuizById
 {
-    public record GetUserAnswersForQuizQuery(Guid UserId, int QuizId) : IRequest<DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>>;
+    public record GetUserAnswersForQuizQuery(Guid UserId, int QuizId) : IRequest<DomainRequestResult<UserAnswersForQuizRecord>>;
 }

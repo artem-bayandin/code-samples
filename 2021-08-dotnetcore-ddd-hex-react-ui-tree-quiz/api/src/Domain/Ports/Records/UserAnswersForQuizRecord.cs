@@ -1,4 +1,4 @@
 ﻿namespace Domain.Ports.Records
 {
-    public record UserAnswersForQuizRecord(int UserId, int QuizId, IEnumerable<int> SelectedNodes);
+    public record UserAnswersForQuizRecord(Guid UserId, int QuizId, List<int> SelectedNodes);
 }

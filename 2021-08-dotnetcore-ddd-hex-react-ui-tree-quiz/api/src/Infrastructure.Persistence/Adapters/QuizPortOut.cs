@@ -41,10 +41,12 @@ namespace Infrastructure.Persistence.Adapters
             return names;
         }
 
-        public async Task<IEnumerable<UserAnswersForQuizRecord>> GetUserAnswersForQuiz(Guid userId, int quizId)
+        public async Task<UserAnswersForQuizRecord> GetUserAnswersForQuiz(Guid userId, int quizId)
         {
-            // TODO
-            return new List<UserAnswersForQuizRecord>();
+            var data = await _context.Answers.FirstOrDefaultAsync(x => x.QuizId == quizId && x.UserId == userId);
+            if (data == null) return null;
+
+            return new UserAnswersForQuizRecord(data.UserId, data.QuizId, data.SelectedNodes);
         }
 
         public async Task<bool> QuizExist(int quizId)
@@ -52,9 +54,19 @@ namespace Infrastructure.Persistence.Adapters
             return await _context.Quizzes.AnyAsync(x => x.Id == quizId);
         }
 
-        public async Task SaveUserAnswersForQuiz(Guid userId, int quizId, IEnumerable<int> selectedNodes)
+        public async Task SaveUserAnswersForQuiz(Guid userId, int quizId, List<int> selectedNodes)
         {
-            // TODO
+            var existing = await _context.Answers.FirstOrDefaultAsync(x => x.QuizId == quizId && x.UserId == userId);
+            if (existing == null)
+            {
+                var answers = new QuizUserAnswer(quizId, userId);
+                answers.SelectedNodes = selectedNodes;
+                await _context.Answers.AddAsync(answers);
+            }
+            else
+            {
+                existing.SelectedNodes = selectedNodes;
+            }
         }
 
 

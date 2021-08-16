@@ -24,13 +24,13 @@ namespace Infrastructure.WebApi.Controllers
         }
 
         [HttpGet("{userId}/quiz/{quizId}")]
-        public async Task<IActionResult> GetQuizzAnswers([FromQuery] Guid userId, [FromQuery] int quizId)
+        public async Task<IActionResult> GetQuizzAnswers(Guid userId, int quizId)
         {
             return Result(await _quizPort.GetUserAnswersForQuiz(userId, quizId));
         }
 
         [HttpPost("{userId}/quiz/{quizId}")]
-        public async Task<IActionResult> SaveQuizzAnswers([FromQuery] Guid userId, [FromQuery] int quizId, [FromBody] IEnumerable<int> selectedNodes)
+        public async Task<IActionResult> SaveQuizzAnswers(Guid userId, int quizId, [FromBody] List<int> selectedNodes)
         {
             return Result(await _quizPort.SaveUserAnswersForQuiz(userId, quizId, selectedNodes));
         }

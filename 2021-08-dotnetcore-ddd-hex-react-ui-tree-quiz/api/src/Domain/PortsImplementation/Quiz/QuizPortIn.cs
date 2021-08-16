@@ -26,12 +26,12 @@ namespace Domain.PortsImplementation.Quiz
             return await _mediator.Send(new GetQuizzesNamesQuery());
         }
 
-        public async Task<DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>> GetUserAnswersForQuiz(Guid userId, int quizId)
+        public async Task<DomainRequestResult<UserAnswersForQuizRecord>> GetUserAnswersForQuiz(Guid userId, int quizId)
         {
             return await _mediator.Send(new GetUserAnswersForQuizQuery(userId, quizId));
         }
 
-        public async Task<DomainRequestResult> SaveUserAnswersForQuiz(Guid userId, int quizId, IEnumerable<int> selectedNodes)
+        public async Task<DomainRequestResult> SaveUserAnswersForQuiz(Guid userId, int quizId, List<int> selectedNodes)
         {
             return await _mediator.Send(new SaveUserAnswersForQuizCommand(userId, quizId, selectedNodes));
         }

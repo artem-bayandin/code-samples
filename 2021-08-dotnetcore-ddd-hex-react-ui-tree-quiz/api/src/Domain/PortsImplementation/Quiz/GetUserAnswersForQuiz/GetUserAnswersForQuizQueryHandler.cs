@@ -6,7 +6,7 @@ using FluentValidation;
 
 namespace Domain.PortsImplementation.Quiz.GetQuizById
 {
-    public class GetUserAnswersForQuizQueryHandler : BaseHandlerWithValidation<GetUserAnswersForQuizQuery, DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>>
+    public class GetUserAnswersForQuizQueryHandler : BaseHandlerWithValidation<GetUserAnswersForQuizQuery, DomainRequestResult<UserAnswersForQuizRecord>>
     {
         private readonly IQuizPortOut _quizPortOut;
 
@@ -18,9 +18,9 @@ namespace Domain.PortsImplementation.Quiz.GetQuizById
             _quizPortOut = quizPortOut;
         }
 
-        protected override async Task<DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>> DoTheJob(GetUserAnswersForQuizQuery request, CancellationToken cancellationToken)
+        protected override async Task<DomainRequestResult<UserAnswersForQuizRecord>> DoTheJob(GetUserAnswersForQuizQuery request, CancellationToken cancellationToken)
         {
-            return DomainRequestResult<IEnumerable<UserAnswersForQuizRecord>>.Ok(await _quizPortOut.GetUserAnswersForQuiz(request.UserId, request.QuizId));
+            return DomainRequestResult<UserAnswersForQuizRecord>.Ok(await _quizPortOut.GetUserAnswersForQuiz(request.UserId, request.QuizId));
         }
     }
 }

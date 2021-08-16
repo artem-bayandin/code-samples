@@ -1,4 +1,5 @@
-﻿using Infrastructure.Persistence.Entities;
+﻿using Domain.Ports.Out;
+using Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Context
@@ -7,14 +8,14 @@ namespace Infrastructure.Persistence.Context
     {
         DbSet<User> Users { get; set; }
         DbSet<Quiz> Quizzes { get; set; }
-
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        DbSet<QuizUserAnswer> Answers { get; set; }
     }
 
-    public class QuizContext : DbContext, IQuizContext
+    public class QuizContext : DbContext, IQuizContext, IUnitOfWork
     {
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Quiz> Quizzes { get; set; }
+        public virtual DbSet<QuizUserAnswer> Answers { get; set; }
 
         public QuizContext(DbContextOptions<QuizContext> options) : base(options)
         {
