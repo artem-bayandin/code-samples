@@ -1,0 +1,1 @@
+export { RouterConfig } from './RouterConfig'

@@ -1,0 +1,1 @@
+export { logger as loggerMiddleware } from './logger'

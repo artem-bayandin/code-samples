@@ -1,0 +1,6 @@
+export { IndexPage } from './IndexPage'
+export { QuizItemPage } from './QuizItemPage'
+export { QuizListPage } from './QuizListPage'
+export { QuizPlayPage } from './QuizPlayPage'
+export { ResultsItemPage } from './ResultsItemPage'
+export { ResultsListPage } from './ResultsListPage'
