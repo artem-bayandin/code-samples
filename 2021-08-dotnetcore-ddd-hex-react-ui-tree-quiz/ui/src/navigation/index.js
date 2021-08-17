@@ -1,2 +1,2 @@
-export { RouterConfig } from './RouterConfig'
-export * as routes from './route-constants'
+export { NotFound } from './NotFound/NotFound'
+export * as Routes from './route-constants'

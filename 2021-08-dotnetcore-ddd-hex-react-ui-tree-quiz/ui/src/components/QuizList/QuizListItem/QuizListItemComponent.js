@@ -1,7 +1,7 @@
 import React from 'react'
-import './QuizListItem.css'
+import './QuizListItemComponent.css'
 import { Link } from 'react-router-dom'
-import { routes } from '../../navigation'
+import { Routes } from '../../../navigation'
 
 export const QuizListItemComponent = (props) => {
     const { itemId, name } = props
@@ -11,17 +11,17 @@ export const QuizListItemComponent = (props) => {
             <span>Name: {name}</span>
             {
                 props.view && (
-                    <Link to={`${routes.QUIZ_LIST}/${itemId}`}>view</Link>
+                    <Link to={`${Routes.QUIZ_LIST}/${itemId}`}>view</Link>
                 )
             }
             {
                 props.play && (
-                    <Link to={`${routes.QUIZ_LIST}/${itemId}/${routes.PART_QUIZ_PLAY}`}>play</Link>
+                    <Link to={`${Routes.QUIZ_LIST}/${itemId}/${Routes.PART_QUIZ_PLAY}`}>play</Link>
                 )
             }
             {
-                props.results && (
-                    <Link to={`${routes.RESULTS_LIST}/${itemId}`}>results</Link>
+                props.answers && (
+                    <Link to={`${Routes.ANSWERS_LIST}/${itemId}`}>answers</Link>
                 )
             }
         </div>

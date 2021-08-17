@@ -1,1 +1,1 @@
-export { QuizListContainer } from './QuizList'
+export { QuizGameContainer } from './QuizGame/QuizGameContainer'

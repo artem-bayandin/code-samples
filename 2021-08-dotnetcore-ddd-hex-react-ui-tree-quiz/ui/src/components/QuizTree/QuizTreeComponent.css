@@ -1,0 +1,27 @@
+.quiz-tree-container {
+
+}
+.quiz-tree-container .header {
+    
+}
+
+.quiz-tree-container .tree-node {
+    border: 1px solid #ccc;
+    padding: 5px;
+    display: inline-grid;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.quiz-tree-container .tree-node.chosen {
+    border: 2px dashed #888;
+}
+
+.quiz-tree-container .tree-node .relation {
+    color: #ccc;
+    font-size: 10px;
+}
+
+.quiz-tree-container .tree-node .options {
+
+}

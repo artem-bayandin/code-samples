@@ -1,7 +1,8 @@
-import { QuizGameContainer } from '../../containers/QuizGame/QuizGameContainer'
-import './QuizPlayPage.css'
+import React from 'react'
+import { QuizTreeComponent } from '../../components'
+import './AnswersItemPage.css'
 
-export const QuizPlayPage = () => {
+export const AnswersItemPage = () => {
     const quiz = {
         id: 1,
         name: 'some name',
@@ -52,8 +53,13 @@ export const QuizPlayPage = () => {
             ]
         }
     }
+    const answers = [10, 12]
 
     return (
-        <QuizGameContainer quiz={quiz} />
+        <div className="answers-item-page">
+            <QuizTreeComponent
+                quiz={quiz}                
+                answers={answers} />
+        </div>
     )
 }

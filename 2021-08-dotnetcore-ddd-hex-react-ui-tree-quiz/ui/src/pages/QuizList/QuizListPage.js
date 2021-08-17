@@ -1,6 +1,6 @@
 import React from 'react'
 import './QuizListPage.css'
-import { QuizListContainer } from '../../containers'
+import { QuizListComponent } from '../../components'
 
 export const QuizListPage = () => {
     const quizzes = [{
@@ -12,7 +12,7 @@ export const QuizListPage = () => {
     }]
     return (
         <div className="quiz-list-page">
-            <QuizListContainer
+            <QuizListComponent
                 header="Choose a quiz to play"
                 items={quizzes}
                 play />

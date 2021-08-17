@@ -1,3 +1,7 @@
 .quiz-play-page {
     
 }
+
+.quiz-play-page .quiz-name {
+    font-weight: bold;
+}
