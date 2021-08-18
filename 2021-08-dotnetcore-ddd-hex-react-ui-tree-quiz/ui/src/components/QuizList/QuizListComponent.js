@@ -1,12 +1,13 @@
 import React from 'react'
+import './QuizListComponent.css'
 
 import { QuizListItemComponent } from './QuizListItem/QuizListItemComponent'
 
 export const QuizListComponent = (props) => {
     const { play, answers, items } = props
     return (
-        <>
-            <div>{props.header}</div>
+        <div className='quiz-list-component'>
+            <div className='header'>{props.header}</div>
             {
                 items.map(item => <QuizListItemComponent
                                     key={item.id}
@@ -16,6 +17,6 @@ export const QuizListComponent = (props) => {
                                     play={play}
                                     answers={answers} />)
             }
-        </>
+        </div>
     )
 }

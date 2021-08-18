@@ -1,0 +1,19 @@
+.game-over {
+}
+.game-over .header {
+    margin-bottom: 10px;
+}
+.game-over .header .label {
+    margin-right: 10px;
+}
+.game-over .header .result {
+    font-style: italic;
+    text-decoration: underline;
+}
+.game-over .ask-to-save {
+    margin-bottom: 10px;
+}
+.game-over .choice-container {
+}
+.game-over .choice-container span {
+}

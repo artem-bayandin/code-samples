@@ -1,8 +1,4 @@
 footer {
-    padding: 5px;
     background-color: #eee;
-}
-
-footer a {
-    margin-right: 5px;
+    text-align: center;
 }

@@ -3,6 +3,6 @@ import './QuizPlayNodeComponent.css'
 
 export const QuizPlayNodeComponent = ({node, relation, clicked}) => {
     return (
-        <div onClick={() => clicked(node)}>{relation}</div>
+        <div className='quiz-play-node-component link' onClick={() => clicked(node)}>{relation}</div>
     )
 }

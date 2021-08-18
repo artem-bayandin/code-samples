@@ -1,0 +1,15 @@
+header, main, footer {
+    padding: 10px;
+}
+
+a, a:visited, .link, .link:visited {
+    margin-right: 10px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:hover, .link:hover {
+    text-decoration: underline;
+    color: #666;
+    cursor: pointer;
+}

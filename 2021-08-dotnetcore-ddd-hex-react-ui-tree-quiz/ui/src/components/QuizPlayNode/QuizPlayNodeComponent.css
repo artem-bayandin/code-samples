@@ -1,5 +1,13 @@
-.quiz-list-item {
+.quiz-play-node-component {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.quiz-list-item span {
-    margin-right: 5px;
+
+.quiz-play-node-component.link {
+    margin-right: 0;
+}
+
+.quiz-play-node-component:first-child {
+    padding-left: 0;
 }

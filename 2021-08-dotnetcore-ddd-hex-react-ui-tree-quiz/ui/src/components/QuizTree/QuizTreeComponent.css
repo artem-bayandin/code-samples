@@ -1,27 +1,41 @@
-.quiz-tree-container {
+.quiz-tree-component {
 
 }
-.quiz-tree-container .header {
-    
+.quiz-tree-component .header {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.quiz-tree-container .tree-node {
+.quiz-tree-component .tree-node {
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 8px;
     display: inline-grid;
     border-radius: 10px;
     margin: 10px;
 }
 
-.quiz-tree-container .tree-node.chosen {
+.quiz-tree-component .tree-node.top {
+    margin: 0;
+}
+
+.quiz-tree-component .tree-node.chosen {
     border: 2px dashed #888;
 }
 
-.quiz-tree-container .tree-node .relation {
-    color: #ccc;
-    font-size: 10px;
+.quiz-tree-component .tree-node .relation {
+    color: #aaa;
+    margin-bottom: 5px;
 }
 
-.quiz-tree-container .tree-node .options {
+.quiz-tree-component .tree-node .options {
+    display: flex;
+    align-items: flex-start;
+}
 
+.quiz-tree-component .tree-node .options :first-child {
+    margin-left: 0;
+}
+
+.quiz-tree-component .tree-node .options :last-child {
+    margin-right: 0;
 }

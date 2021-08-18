@@ -11,17 +11,17 @@ export const QuizListItemComponent = (props) => {
             <span>Name: {name}</span>
             {
                 props.view && (
-                    <Link to={`${Routes.QUIZ_LIST}/${itemId}`}>view</Link>
+                    <Link to={`${Routes.QUIZ_LIST}/${itemId}`}>view a tree</Link>
                 )
             }
             {
                 props.play && (
-                    <Link to={`${Routes.QUIZ_LIST}/${itemId}/${Routes.PART_QUIZ_PLAY}`}>play</Link>
+                    <Link to={`${Routes.QUIZ_LIST}/${itemId}/${Routes.PART_QUIZ_PLAY}`}>play quiz</Link>
                 )
             }
             {
                 props.answers && (
-                    <Link to={`${Routes.ANSWERS_LIST}/${itemId}`}>answers</Link>
+                    <Link to={`${Routes.ANSWERS_LIST}/${itemId}`}>view answers</Link>
                 )
             }
         </div>

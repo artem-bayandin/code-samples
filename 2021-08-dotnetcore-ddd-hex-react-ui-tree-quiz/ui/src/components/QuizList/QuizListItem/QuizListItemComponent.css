@@ -1,5 +1,6 @@
 .quiz-list-item {
+    margin-bottom: 10px;
 }
 .quiz-list-item span, .quiz-list-item a {
-    margin-right: 5px;
+    margin-right: 20px;
 }

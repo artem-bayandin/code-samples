@@ -1,0 +1,17 @@
+.quiz-play-page {
+}
+.quiz-play-page .quiz-name {
+    margin-bottom: 10px;
+}
+.quiz-play-page .current-node {
+}
+.quiz-play-page .current-node .question {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.quiz-play-page .current-node .options {
+    
+}
+.quiz-play-page .current-node .options :not(:first-child) {
+    border-left: 2px solid #777;
+}
