@@ -22,6 +22,18 @@ namespace Infrastructure.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Infrastructure.WebApi", Version = "v1" });
             });
 
+            // add cors for development
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+            });
+
             // register custom dependencies
             services.RegisterDomainModule();
             services.RegisterInfrastructurePersistenceModule(Configuration);
@@ -40,6 +52,7 @@ namespace Infrastructure.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

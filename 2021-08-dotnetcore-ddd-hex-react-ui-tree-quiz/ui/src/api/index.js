@@ -6,7 +6,5 @@ export {
     , POST_SAVE_QUIZ_ANSWERS
 } from './uris'
 
-export { localAxios as axios } from './local-axios' 
-
 export { quizApi } from './quiz-api'
 export { userApi } from './user-api'

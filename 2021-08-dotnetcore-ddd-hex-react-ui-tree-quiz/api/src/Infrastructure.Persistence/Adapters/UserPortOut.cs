@@ -17,7 +17,7 @@ namespace Infrastructure.Persistence.Adapters
         public async Task<Guid> CreateUser()
         {
             var id = Guid.NewGuid();
-            var user = new User(id, id.ToString().Substring(0, 8)));
+            var user = new User(id, id.ToString().Substring(0, 8));
             await _context.Users.AddAsync(user);
             return id;
         }
