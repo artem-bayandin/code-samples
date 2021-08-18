@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './QuizListPage.css'
 import { QuizListComponent } from '../../components'
+import { fetchQuizzes } from '../../redux-toolkit-store'
 
 export const QuizListPage = () => {
-    const quizzes = [{
-        id: 1,
-        name: 'first'
-    }, {
-        id: 2,
-        name: 'second'
-    }]
+    const quizzes = useSelector(state => state.quizzes.quizzes)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchQuizzes())
+    }, [])
+
     return (
         <div className="quiz-list-page">
             <QuizListComponent

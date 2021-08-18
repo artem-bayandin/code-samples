@@ -1,59 +1,20 @@
-import { QuizGameContainer } from '../../containers/QuizGame/QuizGameContainer'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import './QuizPlayPage.css'
+import { QuizGameContainer } from '../../containers/QuizGame/QuizGameContainer'
+import { fetchQuizById } from '../../redux-toolkit-store'
 
 export const QuizPlayPage = () => {
-    const quiz = {
-        id: 1,
-        name: 'some name',
-        root: {
-            'id':7,
-            'text':`Do you want to start?`,
-            'children':[
-                {
-                    'relation':`yes`,
-                    'node':{
-                        'id':8,
-                        'text':`second step if yes`,
-                        'children':[
-                            
-                        ]
-                    }
-                },
-                {
-                    'relation':`no`,
-                    'node':{
-                        'id':9,
-                        'text':`Yeah! Thanks for not playing!`
-                    }
-                },
-                {
-                    'relation':`not sure`,
-                    'node':{
-                        'id':10,
-                        'text':`Hmm... Are you a human?`,
-                        'children':[
-                            {
-                                'relation':`not sure`,
-                                'node':{
-                                    'id':11,
-                                    'text':`You have chosen the right one.`
-                                }
-                            },
-                            {
-                                'relation':`not sure`,
-                                'node':{
-                                    'id':12,
-                                    'text':`You have chosen the left one.`
-                                }
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    }
+    const quiz = useSelector(state => state.quizzes.quiz)
+    const dispatch = useDispatch()
+    const { id } = useParams();
+
+    useEffect(() => {
+        dispatch(fetchQuizById(id))
+    }, [])
 
     return (
-        <QuizGameContainer quiz={quiz} />
+        <>{ quiz && <QuizGameContainer quiz={quiz} /> }</>
     )
 }

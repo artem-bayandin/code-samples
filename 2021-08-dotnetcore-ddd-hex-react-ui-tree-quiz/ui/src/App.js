@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Switch, Route } from 'react-router'
+import { checkUserIdAndCreateUserIfNeeded } from './redux-toolkit-store'
 
 import { Layout } from './layout'
 import { NotFound, Routes } from './navigation'
 import * as Pages from './pages'
 
 const App = (props) => {
+
+    // definitely not a good way to check Auth
+    // a separate AuthContainer should be created
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(checkUserIdAndCreateUserIfNeeded())
+    }, [])
+
     return (
         <>
             <Layout>
