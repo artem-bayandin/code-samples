@@ -4,14 +4,16 @@ using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20210819111502_a longer quiz added")]
+    partial class alongerquizadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,15 +41,15 @@ namespace Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 12,
                             Name = "Multi nodes test",
-                            Root = "{\"Id\":2,\"Text\":\"Do you want to start?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":3,\"Text\":\"You clicked 'yes', great. That's the end\"}},{\"Relation\":\"no\",\"Node\":{\"Id\":4,\"Text\":\"Yeah! Thanks for NOT playing!\"}},{\"Relation\":\"not sure\",\"Node\":{\"Id\":5,\"Text\":\"Hmm... Are you a human?\",\"Children\":[{\"Relation\":\"not sure\",\"Node\":{\"Id\":6,\"Text\":\"You have chosen the right one.\"}},{\"Relation\":\"not sure\",\"Node\":{\"Id\":7,\"Text\":\"You have chosen the left one.\"}}]}}]}"
+                            Root = "{\"Id\":13,\"Text\":\"Do you want to start?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":14,\"Text\":\"You clicked 'yes', great. That's the end\"}},{\"Relation\":\"no\",\"Node\":{\"Id\":15,\"Text\":\"Yeah! Thanks for NOT playing!\"}},{\"Relation\":\"not sure\",\"Node\":{\"Id\":16,\"Text\":\"Hmm... Are you a human?\",\"Children\":[{\"Relation\":\"not sure\",\"Node\":{\"Id\":17,\"Text\":\"You have chosen the right one.\"}},{\"Relation\":\"not sure\",\"Node\":{\"Id\":18,\"Text\":\"You have chosen the left one.\"}}]}}]}"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 19,
                             Name = "Long Quiz",
-                            Root = "{\"Id\":9,\"Text\":\"How are you?\",\"Children\":[{\"Relation\":\"fine\",\"Node\":{\"Id\":10,\"Text\":\"Not bad, not bad. Are you waiting for a weekend to have a rest?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":11,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"drink beer\",\"Node\":{\"Id\":12,\"Text\":\"Dark or light?\",\"Children\":[{\"Relation\":\"dark\",\"Node\":{\"Id\":13,\"Text\":\"I will call you 'Dark Knight' now)\"}},{\"Relation\":\"light\",\"Node\":{\"Id\":14,\"Text\":\"Light is for girls, urgh... I have no more questions.\"}},{\"Relation\":\"Budweiser\",\"Node\":{\"Id\":15,\"Text\":\"Great choice! Feel free to fill you tanks!\"}}]}},{\"Relation\":\"do sports\",\"Node\":{\"Id\":16,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":17,\"Text\":\"Ha-ha! Okay, have a rest.\"}},{\"Relation\":\"Nike\",\"Node\":{\"Id\":18,\"Text\":\"Just do it!\"}}]}},{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":19,\"Text\":\"Ha-ha! Okay, have a rest.\"}}]}},{\"Relation\":\"no\",\"Node\":{\"Id\":20,\"Text\":\"No? So you have no plan to feel better and answer 'brilliant' next time?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":21,\"Text\":\"Okay. Bye.\"}}]}}]}},{\"Relation\":\"brilliant\",\"Node\":{\"Id\":22,\"Text\":\"Great to hear! But I have not prepared another questions to you, rather than from the first option. So, are you waiting for a weekend to have a rest?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":23,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"drink beer\",\"Node\":{\"Id\":24,\"Text\":\"Dark or light?\",\"Children\":[{\"Relation\":\"dark\",\"Node\":{\"Id\":25,\"Text\":\"I will call you 'Dark Knight' now)\"}},{\"Relation\":\"light\",\"Node\":{\"Id\":26,\"Text\":\"Light is for girls, urgh... I have no more questions.\"}},{\"Relation\":\"Budweiser\",\"Node\":{\"Id\":27,\"Text\":\"Great choice! Feel free to fill you tanks!\"}}]}},{\"Relation\":\"do sports\",\"Node\":{\"Id\":28,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":29,\"Text\":\"Ha-ha! Okay, have a rest.\"}},{\"Relation\":\"Nike\",\"Node\":{\"Id\":30,\"Text\":\"Just do it!\"}}]}},{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":31,\"Text\":\"Ha-ha! Okay, have a rest.\"}}]}},{\"Relation\":\"no\",\"Node\":{\"Id\":32,\"Text\":\"No? So you have no plan to feel better and answer 'brilliant' next time?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":33,\"Text\":\"Okay. Bye.\"}}]}}]}}]}"
+                            Root = "{\"Id\":20,\"Text\":\"How are you?\",\"Children\":[{\"Relation\":\"fine\",\"Node\":{\"Id\":21,\"Text\":\"Not bad, not bad. Are you waiting for a weekend to have a rest?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":1,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"drink beer\",\"Node\":{\"Id\":2,\"Text\":\"Dark or light?\",\"Children\":[{\"Relation\":\"dark\",\"Node\":{\"Id\":3,\"Text\":\"I will call you 'Dark Knight' now)\"}},{\"Relation\":\"light\",\"Node\":{\"Id\":4,\"Text\":\"Light is for girls, urgh... I have no more questions.\"}},{\"Relation\":\"Budweiser\",\"Node\":{\"Id\":5,\"Text\":\"Great choice! Feel free to fill you tanks!\"}}]}},{\"Relation\":\"do sports\",\"Node\":{\"Id\":6,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":7,\"Text\":\"Ha-ha! Okay, have a rest.\"}},{\"Relation\":\"Nike\",\"Node\":{\"Id\":8,\"Text\":\"Just do it!\"}}]}},{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":9,\"Text\":\"Ha-ha! Okay, have a rest.\"}}]}},{\"Relation\":\"no\",\"Node\":{\"Id\":10,\"Text\":\"No? So you have no plan to feel better and answer 'brilliant' next time?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":11,\"Text\":\"Okay. Bye.\"}}]}}]}},{\"Relation\":\"brilliant\",\"Node\":{\"Id\":22,\"Text\":\"Great to hear! But I have not prepared another questions to you, rather than from the first option. So, are you waiting for a weekend to have a rest?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":1,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"drink beer\",\"Node\":{\"Id\":2,\"Text\":\"Dark or light?\",\"Children\":[{\"Relation\":\"dark\",\"Node\":{\"Id\":3,\"Text\":\"I will call you 'Dark Knight' now)\"}},{\"Relation\":\"light\",\"Node\":{\"Id\":4,\"Text\":\"Light is for girls, urgh... I have no more questions.\"}},{\"Relation\":\"Budweiser\",\"Node\":{\"Id\":5,\"Text\":\"Great choice! Feel free to fill you tanks!\"}}]}},{\"Relation\":\"do sports\",\"Node\":{\"Id\":6,\"Text\":\"Nice to hear. And what will you do?\",\"Children\":[{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":7,\"Text\":\"Ha-ha! Okay, have a rest.\"}},{\"Relation\":\"Nike\",\"Node\":{\"Id\":8,\"Text\":\"Just do it!\"}}]}},{\"Relation\":\"lazy chillin'\",\"Node\":{\"Id\":9,\"Text\":\"Ha-ha! Okay, have a rest.\"}}]}},{\"Relation\":\"no\",\"Node\":{\"Id\":10,\"Text\":\"No? So you have no plan to feel better and answer 'brilliant' next time?\",\"Children\":[{\"Relation\":\"yes\",\"Node\":{\"Id\":11,\"Text\":\"Okay. Bye.\"}}]}}]}}]}"
                         });
                 });
 

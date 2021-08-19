@@ -27,9 +27,8 @@ export const GameOverContainer = ({quizId, result, answers}) => {
     return (
         <div className='game-over'>
             <div className='header'>
-                <span className='label'>game over, your result:</span>
                 <span className='result'>{result}</span></div>
-            <div className='ask-to-save'>do you want to save results?</div>
+            <div className='ask-to-save'>That's the end. Do you want to save your results?</div>
             <div className='choice-container'>
                 <span className='link' onClick={() => saveResults()}>yes</span>
                 <span className='link' onClick={() => goHome()}>no</span>
