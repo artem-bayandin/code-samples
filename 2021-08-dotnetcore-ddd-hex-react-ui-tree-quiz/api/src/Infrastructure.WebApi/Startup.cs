@@ -4,6 +4,9 @@ using Microsoft.OpenApi.Models;
 
 namespace Infrastructure.WebApi
 {
+    // dotnet run on port:
+    // dotnet run --urls="https://localhost:6001"
+    // https://stackoverflow.com/questions/37365277/how-to-specify-the-port-an-asp-net-core-application-is-hosted-on
     public class Startup
     {
         public Startup(IConfiguration configuration)

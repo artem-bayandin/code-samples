@@ -1,4 +1,4 @@
-export const BASE_URI = `https://localhost:44391/api/`
+export const BASE_URI = `https://localhost:6001/api/`
 
 const QUIZ = `quiz`
 export const GET_QUIZ_LIST = `${QUIZ}/`
