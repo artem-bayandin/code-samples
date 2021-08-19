@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Routes } from '../../navigation'
+import { Routes } from '../../../navigation'
 import './Header.css'
 
 export const Header = () => {

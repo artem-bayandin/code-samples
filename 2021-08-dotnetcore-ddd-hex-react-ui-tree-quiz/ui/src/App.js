@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux'
 import { Switch, Route } from 'react-router'
 import { checkUserIdAndCreateUserIfNeeded } from './redux-toolkit-store'
 
-import { Layout } from './layout'
-import { NotFound, Routes } from './navigation'
+import { Layout } from './components'
+import { Routes } from './navigation'
+import { NotFound } from './components'
 import * as Pages from './pages'
 
 const App = (props) => {
