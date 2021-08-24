@@ -1,4 +1,11 @@
-# API
+# Overview
+At the moment, the code is the implementation of one of the test tasks. It should allow a user to 'play' kind of a 'quiz' game with 'yes'/'no' answers to a question. Zero additional requirements, that's why several personal assumptions:
+- no 'full-sized' authentication needed: UI simply checks local storage for having a 'user_id' variable, if it does not exist, then a request is sent to API, where a new user is created and its id is sent back to UI and stored in local storage;
+- in fact, a quiz is a tree data structure, but storing trees is a complex task, and implementation depends on the business logic; as we have no requirements, then trees are stored as serialized string properties - because a) simple to implement; b) no performance hacks are needed at the moment;
+- no tests added - to do it right I need to implement a lot of base test logic, so that tests could be easily added later; just believe me that I have enough experience writing unit tests;
+- mix of two approaches - 'ports and adapters' aka 'Hexagonal' and 'CQRS'.
+
+## API
 [reserved for description]
 
 ### how to run
@@ -24,7 +31,7 @@ Project uses the latest preview version of .Net SDK and runtime. To build and ru
 - no logging;
 - no exception handling.
 
-# UI
+## UI
 [reserved for description]
 
 ### how to run
