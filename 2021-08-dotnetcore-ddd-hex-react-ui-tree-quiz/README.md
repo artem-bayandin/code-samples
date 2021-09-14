@@ -3,7 +3,7 @@ At the moment, the code is the implementation of one of the test tasks. It shoul
 - no 'full-sized' authentication needed: UI simply checks local storage for having a 'user_id' variable, if it does not exist, then a request is sent to API, where a new user is created and its id is sent back to UI and stored in local storage;
 - in fact, a quiz is a tree data structure, but storing trees is a complex task, and implementation depends on the business logic; as we have no requirements, then trees are stored as serialized string properties - because a) simple to implement; b) no performance hacks are needed at the moment;
 - no tests added - to do it right I need to implement a lot of base test logic, so that tests could be easily added later; just believe me that I have enough experience writing unit tests;
-- mix of two approaches - 'ports and adapters' aka 'Hexagonal' and 'CQRS'.
+- mix of two approaches - 'ports and adapters' aka 'Hexagonal' and 'CQRS'. A bit more explanation might be found [here](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/) (my code does not pretend to be a strict copy and/or implementation of principles described in the article, but a sample).
 
 ## API
 [reserved for description]
